@@ -1,0 +1,49 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Maria",
+      "phone": "(53) 9911-85868",
+      "email": "maria@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Ana",
+      "phone": "(53) 9911-85453",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Carlos",
+      "phone": "(22) 99111-2345",
+      "email": "carlos@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Jose",
+      "phone": "(25) 59911-78657",
+      "email": "jose@gmail.com"
+    },
+    {
+      "name": "Camila",
+      "phone": "(53) 99778-5443",
+      "email": "camila@gmail.com",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "name": "Roma",
+      "phone": 53997785443,
+      "email": "camila@gmail.com",
+      "id": 9
+    }
+  ]
+}
