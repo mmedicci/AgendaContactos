@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import './App.css';
 
 function App() {
+
+  // definição de variáveis 
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -15,9 +19,26 @@ function App() {
         "email":'',    
       }
     ]);
+    const [isEditar, setIsEditar] = useState();
+    const [search, setSearch] = useState('');
 
-  const handleAddContact = async (event) => {
-    event.preventDefault();
+    // Mostrar contatos
+
+  function verContacts() {
+    fetch('http://localhost:4000/contacts')
+      .then((response) => response.json())
+      .then(data => setListContacts(data))
+  }
+
+  useEffect(() => {
+    verContacts()
+  }, [])
+
+  //Adição de contatos
+
+  const handleAddContact = async (e) => {
+    e.preventDefault();
+    e.target.reset();
 
     const data = { 
       "name": name,
@@ -33,33 +54,45 @@ function App() {
     });
 
     if (response.ok) {
-      console.log("OKS", response.ok);
-      fetchAll();
+      console.log("Adicionou contato", response.ok);
+      verContacts();
     }
       else
       console.log("ERRO", response);
-  }
-
-  function fetchAll() {
-      fetch('http://localhost:4000/contacts')
-        .then((response) => response.json())
-        .then(data => setListContacts(data))
-  }
-
-  useEffect(() => {
-    fetchAll()
-  }, [])
-
-  /*useEffect(() => {
-    fetch('http://localhost:4000/contacts')
-      .then((response) => response.json())
-      .then(data => setListContacts(data))
  
-    if (response.ok) {
-      console.log("OKS", response.ok);
-    }
-  });*/
-  
+  }
+  // Editar contato
+
+  const handleEditContact = async (ediContId) => {
+    console.log("Editou contato", ediContId)
+    await fetch(`http://localhost:4000/contacts/${ediContId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(name, phone, email),
+      headers: {"Acept": "application/jason", "Content-type": "application/json; charset=UTF-8"}
+    })
+      .then((response) => {
+        response.json().then((result) => {
+          console.log(result)
+          verContacts()
+        })
+      })
+  }
+
+  //Excluir contato
+
+  const handleExcContact = async (excContId) => {
+    const response = await fetch(`http://localhost:4000/contacts/${excContId}`, {
+      method: 'DELETE'}
+    )
+      .then(response => {
+        response.json().then((result) => {
+          console.log(result);
+          verContacts();
+        })
+      })
+
+  };
+
   return(
     <div className="App">
       <header className="App-header">
@@ -69,32 +102,35 @@ function App() {
       <div className="App-body">
         <form onSubmit={handleAddContact} className="form-input" > 
           <div>
-            <label>Name: </label> <br/>
+            <label>Name </label> <br/>
             <input 
               type="text" 
-              value={name} 
+              value={listContacts.name} 
               onChange={(e) => setName(e.target.value)}
+              placeholder="Nome"
             />          
           </div>
           <div>
-            <label> Phone: </label> <br />
+            <label> Phone </label> <br />
             <input 
               type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}               
+              value={listContacts.phone}
+              onChange={(e) => setPhone(e.target.value)} 
+              placeholder="Telefone"              
             />            
           </div>
           <div>
-            <label> E-mail: </label> <br />
+            <label> E-mail </label> <br />
             <input 
-              type="text" 
-              value={email}
+              type="email" 
+              value={listContacts.email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="e-mail"
             />
           </div>
           <div className="Botão">
             <br />
-            <button type="submit">Adicionar contato</button> 
+            <Button type="submit" variant="outline-light">Adicionar</Button> 
           </div>
         </form> 
       </div>
@@ -105,20 +141,23 @@ function App() {
             <th>Nome</th>
             <th>Phone</th>
             <th>E-mail</th>
-            <th>Opções</th>
+            <th>Atualizar</th>
+            <th>Excluir</th>
           </tr>            
         </thead>           
         <tbody>                
           {listContacts.map(contacts => {
             return (
-              <tr>
+              <tr key={contacts.id}>
                 <td>{contacts.id}</td>
                 <td>{contacts.name}</td>
                 <td>{contacts.phone}</td>
                 <td>{contacts.email}</td>
                 <td>
-                  <button>Atualizar</button>               
-                  <button>Excluir</button>
+                  <Button onClick={() => handleEditContact(contacts.id)} variant="outline-light">Editar</Button>
+                </td>
+                <td>               
+                  <Button onClick={() => handleExcContact(contacts.id)} variant="outline-danger">Excluir</Button>
                 </td>
               </tr>                                   
             )
@@ -126,12 +165,8 @@ function App() {
         </tbody> 
             
       </Table>                     
-    </div>
-     
+    </div>     
   )
-
-}
-
-  
+} 
 
 export default App;
