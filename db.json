@@ -1,142 +1,34 @@
 {
   "contacts": [
     {
-      "id": 2,
-      "name": "Ana",
-      "phone": "(53) 9911-85453",
-      "email": "ana@gmail.com"
-    },
-    {
-      "id": 3,
-      "name": "Carlos",
-      "phone": "(22) 99111-2345",
-      "email": "carlos@gmail.com"
+      "name": "Maria ",
+      "phone": "(53) 9911-76457",
+      "email": "maria@gmail.com",
+      "id": 1
     },
     {
       "name": "Camila",
-      "phone": "(53) 99778-5443",
+      "phone": "(53) 9997-74389",
       "email": "camila@gmail.com",
-      "id": 5
+      "id": 2
+    },
+    {
+      "name": "Natalia R",
+      "phone": "(25) 59911-78657",
+      "email": "natalia@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Carmen M",
+      "phone": "(27) 9845-8765",
+      "email": "carmen@yahoo.com",
+      "id": 4
     },
     {
       "name": "Jose Augusto",
       "phone": "(27) 99756-4181",
       "email": "ze_malacarne@hotmail.com",
-      "id": 14
-    },
-    {
-      "name": "marau",
-      "phone": "2344",
-      "email": "4rtege@gamabs.com",
-      "id": 15
-    },
-    {
-      "name": "marau",
-      "phone": "2344",
-      "email": "4rtege@gamabs.com",
-      "id": 17
-    },
-    {
-      "name": "hola",
-      "phone": "1234",
-      "email": "m-nedidi@gmai.com",
-      "id": 18
-    },
-    {
-      "name": "hola",
-      "phone": "1234",
-      "email": "m-nedidi@gmai.com",
-      "id": 19
-    },
-    {
-      "name": "hola",
-      "phone": "1234",
-      "email": "m-nedidi@gmai.com",
-      "id": 20
-    },
-    {
-      "name": "ana",
-      "phone": "3524262",
-      "email": "mm@gmail.com",
-      "id": 21
-    },
-    {
-      "name": "",
-      "phone": "",
-      "email": "mj@mn.com",
-      "id": 22
-    },
-    {
-      "name": "ana",
-      "phone": "",
-      "email": "",
-      "id": 23
-    },
-    {
-      "name": "nome",
-      "phone": "435242",
-      "email": "mnnj@gyfh.com",
-      "id": 24
-    },
-    {
-      "name": "mki",
-      "phone": "435242",
-      "email": "mnnj@gyfh.com",
-      "id": 25
-    },
-    {
-      "name": "mki",
-      "phone": "435242",
-      "email": "mnnj@gyfh.com",
-      "id": 26
-    },
-    {
-      "name": "mki",
-      "phone": "435242",
-      "email": "mnnj@gyfh.com",
-      "id": 27
-    },
-    {
-      "name": "mki",
-      "phone": "",
-      "email": "",
-      "id": 28
-    },
-    {
-      "name": "mki",
-      "phone": "3445",
-      "email": "mnvbc@gmail.com",
-      "id": 29
-    },
-    {
-      "name": "mki",
-      "phone": "3445",
-      "email": "mnvbc@gmail.com",
-      "id": 30
-    },
-    {
-      "name": "mki",
-      "phone": "3445",
-      "email": "mnvbc@gmail.com",
-      "id": 31
-    },
-    {
-      "name": "mki",
-      "phone": "3445",
-      "email": "mnvbc@gmail.com",
-      "id": 32
-    },
-    {
-      "name": "mki",
-      "phone": "3445",
-      "email": "mnvbc@gmail.com",
-      "id": 33
-    },
-    {
-      "name": "carlo",
-      "phone": "21333",
-      "email": "mm@medicci.com",
-      "id": 34
+      "id": 5
     }
   ]
 }
